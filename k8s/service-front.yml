@@ -8,7 +8,7 @@ spec:
   type: NodePort
   ports:
   - port: 4201
-    nodePort: 30001
+    nodePort: 34201
     protocol: TCP
   selector:
     app: front-node
