@@ -19,7 +19,7 @@ node {
         env.FRONT_HOST = env.DEV_HOST
         env.FRONT_PORT = 4201
 
-        sh 'docker-compose -f docker/docker-compose.yml up -d --force-recreate --build'
+        sh 'docker-compose -f docker/docker-compose.yml up -d'
 
         sh "mongorestore --host ${env.MONGO_HOST} --gzip --drop --nsInclude barnacle.* --archive=$WORKSPACE/db/barnacle.test.gz"
     }

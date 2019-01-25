@@ -25,11 +25,8 @@ services:
       - dev-net
 
   back:
-    build:
-      context: $WORKSPACE
-      dockerfile: docker/config/back/Dockerfile
     container_name: back
-    image: back
+    image: dkanunik/barnacle-back:latest
     ports:
       - "3000:3000"
     environment:
@@ -40,11 +37,8 @@ services:
       - mongo
 
   front:
-    build:
-      context: $WORKSPACE
-      dockerfile: docker/config/front/Dockerfile
     container_name: front
-    image: front
+    image: dkanunik/barnacle-front:latest
     ports:
       - "4201:4201"
     networks:
