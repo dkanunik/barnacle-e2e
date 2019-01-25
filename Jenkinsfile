@@ -11,7 +11,7 @@ node {
     }
 
     stage('Initialize containers') {
-        sh 'docker/remove.sh'
+        //sh 'docker/remove.sh'
         sh 'docker network create dev-net || true'
 
         env.DEV_HOST = sh(script: "ip addr ls docker0 | awk '/inet / {print \$2}' | cut -d\"/\" -f1", returnStdout: true).trim()
