@@ -4,11 +4,11 @@ const geckodriver = require('geckodriver');
 
 require('nightwatch-cucumber')({
     cucumberArgs: [
-        '--require', 'front/test/e2e/libs',
-        '--require', 'front/test/e2e/step_definitions',
+        '--require', 'test/e2e/libs',
+        '--require', 'test/e2e/step_definitions',
         '--format', 'json:reports/e2e/cucumber.json',
         '--format', 'node_modules/cucumber-pretty',
-        'front/test/e2e/features'
+        'test/e2e/features'
     ]
 });
 
