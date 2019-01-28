@@ -9,9 +9,12 @@ SELENIUM_HOST
 ```
 ##### Run e2e tests locally
 ```
-export MONGO_HOST='localhost'
-export FRONT_HOST='localhost' 
-export FRONT_PORT='4200'
+devHostIP=$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\.){3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}')
+export DEV_HOST_IP="$devHostIP"
+export MONGO_HOST="$devHostIP"
+export FRONT_HOST="$devHostIP"
+export FRONT_PORT=4200
+export BACK_HOST="$devHostIP"
 
 docker network create dev-net || true
 docker-compose -f docker/docker-compose.yml up -d
@@ -21,7 +24,6 @@ npm install
 npm run webdriver:update
 npm run webdriver:start
 
-npm run db:start
 npm run db:update
 
 npm run test:local
