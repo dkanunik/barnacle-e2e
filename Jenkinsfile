@@ -6,7 +6,7 @@ node {
     }
 
     stage('iInitialize NodeJS') {
-        sh 'npm cache clean --force'
+        //sh 'npm cache clean --force'
         sh 'npm install'
     }
 
@@ -14,7 +14,11 @@ node {
         //sh 'docker/clean.sh'
         sh 'docker network create dev-net || true'
 
-        env.DEV_HOST = sh(script: "\$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\\.){3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\\.){3}[0-9]{1,3}')", returnStdout: true).trim()
+        env.TEST = sh(script: "\$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\\.){3}[0-9]{1,3}\"'", returnStdout: true).trim()
+
+        sh "echo ${env.TEST}"
+
+        env.DEV_HOST = localhost
         env.MONGO_HOST = env.DEV_HOST
         env.FRONT_HOST = env.DEV_HOST
         env.SELENIUM_HOST=env.DEV_HOST
