@@ -14,7 +14,7 @@ node {
         //sh 'docker/clean.sh'
         sh 'docker network create dev-net || true'
 
-        env.DEV_HOST = sh(script: "$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\.){3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}')", returnStdout: true).trim()
+        env.DEV_HOST = sh(script: "\$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\.){3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}')", returnStdout: true).trim()
         env.MONGO_HOST = env.DEV_HOST
         env.FRONT_HOST = env.DEV_HOST
         env.SELENIUM_HOST=env.DEV_HOST
