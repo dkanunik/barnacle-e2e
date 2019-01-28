@@ -40,9 +40,7 @@ services:
     container_name: front
     image: dkanunik/barnacle-front:latest
     ports:
-      - "4201:4201"
-    environment:
-      - MONGO_HOST=$MONGO_HOST
+      - "4200:4200"
     networks:
       - dev-net
     depends_on:
