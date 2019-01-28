@@ -6,7 +6,7 @@ require('nightwatch-cucumber')({
     cucumberArgs: [
         '--require', 'test/e2e/libs',
         '--require', 'test/e2e/step_definitions',
-        '--format', 'json:reports/e2e/cucumber.json',
+        '--format', 'json:reports/cucumber.json',
         '--format', 'node_modules/cucumber-pretty',
         'test/e2e/features'
     ]
