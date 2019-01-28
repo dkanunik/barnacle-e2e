@@ -14,7 +14,7 @@ node {
         //sh 'docker/clean.sh'
         sh 'docker network create dev-net || true'
 
-        env.TEST = sh(script: "\$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\\.){3}[0-9]{1,3}\"'", returnStdout: true).trim()
+        env.TEST = sh(script: "\$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\\.){3}[0-9]{1,3}\"')", returnStdout: true).trim()
 
         sh "echo ${env.TEST}"
 
