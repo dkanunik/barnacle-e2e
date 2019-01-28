@@ -24,11 +24,12 @@
     "log4js": "^3.0.6",
     "nightwatch": "0.9.20",
     "nightwatch-cucumber": "9.1.2",
+    "protractor": "^5.3.2",
     "selenium-server": "^3.12.0"
   },
   "scripts": {
-    "test:e2e:local": "node_modules/.bin/nightwatch -c ./nightwatch.conf.js --env chrome",
-    "test:e2e:remote": "node_modules/.bin/nightwatch -c ./nightwatch.remote.conf.js --env chrome",
+    "test:local": "node_modules/.bin/nightwatch -c ./nightwatch.conf.js --env chrome",
+    "test:remote": "node_modules/.bin/nightwatch -c ./nightwatch.remote.conf.js --env chrome",
     "reports:clean": "rm -rf reports",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",

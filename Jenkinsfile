@@ -17,6 +17,7 @@ node {
         env.DEV_HOST = sh(script: "ip addr ls docker0 | awk '/inet / {print \$2}' | cut -d\"/\" -f1", returnStdout: true).trim()
         env.MONGO_HOST = env.DEV_HOST
         env.FRONT_HOST = env.DEV_HOST
+        env.SELENIUM_HOST=env.DEV_HOST
         env.FRONT_PORT = 4200
 
         sh 'docker-compose -f docker/docker-compose.yml up -d'
@@ -25,6 +26,6 @@ node {
     }
 
     stage('Run e2e tests') {
-        sh 'npm run test:e2e:remote'
+        sh 'npm run test:remote'
     }
 }
