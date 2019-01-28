@@ -17,7 +17,7 @@ node {
         env.DEV_HOST = sh(script: "docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\\.){3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\\.){3}[0-9]{1,3}'", returnStdout: true).trim()
         env.MONGO_HOST = 'mongo'
         env.FRONT_HOST = 'front'
-        env.SELENIUM_HOST = 'selenium'
+        env.SELENIUM_HOST = env.DEV_HOST
         env.FRONT_PORT = 4200
 
         sh 'docker-compose -f docker/docker-compose.yml up -d'
