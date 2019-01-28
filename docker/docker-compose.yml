@@ -30,7 +30,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGO_HOST=mongo
+      - MONGO_HOST=$MONGO_HOST
     networks:
       - dev-net
     depends_on:
