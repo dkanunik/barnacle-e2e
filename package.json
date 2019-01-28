@@ -31,7 +31,7 @@
     "test:local": "node_modules/.bin/nightwatch -c ./nightwatch.conf.js --env chrome",
     "test:remote": "node_modules/.bin/nightwatch -c ./nightwatch.remote.conf.js --env chrome",
     "reports:clean": "rm -rf reports",
-    "reports:generate": "node_modules/allure-commandline/bin/allure generate allure-results --clean -o reports/allure-report",
+    "reports:generate": "node report.js",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",
     "db:start": "mongod --dbpath /usr/local/var/mongodb",
