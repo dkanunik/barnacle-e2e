@@ -22,7 +22,7 @@ node {
 
         sh 'docker-compose -f docker/docker-compose.yml up -d'
 
-        sh "mongorestore --host ${env.MONGO_HOST} --gzip --drop --nsInclude barnacle.* --archive=$WORKSPACE/db/barnacle.test.gz"
+        sh "mongorestore --host ${env.DEV_HOST} --gzip --drop --nsInclude barnacle.* --archive=$WORKSPACE/db/barnacle.test.gz"
     }
 
     stage('Run e2e tests') {
