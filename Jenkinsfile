@@ -28,11 +28,6 @@ node {
     stage('Run e2e tests') {
         sh 'npm run test:remote'
         sh 'npm run reports:generate'
-
-        post {
-            always {
-                archiveArtifacts 'reports/**/*'
-            }
-        }
+        archive 'reports/**/*'
     }
 }
