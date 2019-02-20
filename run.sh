@@ -6,7 +6,7 @@ devHostIP=$(docker inspect dev-net | egrep -o '\"Gateway\":.\"([0-9]{1,3}\.){3}[
 export DEV_HOST_IP="$devHostIP"
 export MONGO_HOST="$devHostIP"
 export FRONT_HOST="$devHostIP"
-export FRONT_PORT=4201
+export FRONT_PORT=4200
 export BACK_HOST="$devHostIP"
 export SELENIUM_HOST="$devHostIP"
 
